@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -83,6 +84,32 @@ namespace CapState
         {
             Assembly assembly = Assembly.GetExecutingAssembly();
             return assembly.GetManifestResourceStream("CapState." + filename);
+        }
+
+        private void 设置随系统启动ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(null, "确认设置随系统启动本程序吗？", "CapState", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                string path = Application.ExecutablePath;
+                RegistryKey rk = Registry.LocalMachine;
+                RegistryKey rk2 = rk.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run");
+                rk2.SetValue("CapState", path);
+                rk2.Close();
+                rk.Close();
+            }
+        }
+
+        private void 取消随系统启动ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(null, "确认取消吗？", "CapState", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                string path = Application.ExecutablePath;
+                RegistryKey rk = Registry.LocalMachine;
+                RegistryKey rk2 = rk.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run");
+                rk2.DeleteValue("CapState", false);
+                rk2.Close();
+                rk.Close();
+            }
         }
 
         private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
