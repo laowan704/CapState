@@ -32,9 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.设置随系统启动ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.取消随系统启动ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,49 +42,52 @@
             // 
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Text = "大写锁定状态";
             this.notifyIcon1.Visible = true;
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.设置随系统启动ToolStripMenuItem,
             this.取消随系统启动ToolStripMenuItem,
             this.退出ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(161, 92);
-            // 
-            // 退出ToolStripMenuItem
-            // 
-            this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.退出ToolStripMenuItem.Text = "退出";
-            this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(207, 94);
             // 
             // 设置随系统启动ToolStripMenuItem
             // 
             this.设置随系统启动ToolStripMenuItem.Name = "设置随系统启动ToolStripMenuItem";
-            this.设置随系统启动ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.设置随系统启动ToolStripMenuItem.Size = new System.Drawing.Size(206, 30);
             this.设置随系统启动ToolStripMenuItem.Text = "设置随系统启动";
             this.设置随系统启动ToolStripMenuItem.Click += new System.EventHandler(this.设置随系统启动ToolStripMenuItem_Click);
             // 
             // 取消随系统启动ToolStripMenuItem
             // 
             this.取消随系统启动ToolStripMenuItem.Name = "取消随系统启动ToolStripMenuItem";
-            this.取消随系统启动ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.取消随系统启动ToolStripMenuItem.Size = new System.Drawing.Size(206, 30);
             this.取消随系统启动ToolStripMenuItem.Text = "取消随系统启动";
             this.取消随系统启动ToolStripMenuItem.Click += new System.EventHandler(this.取消随系统启动ToolStripMenuItem_Click);
             // 
+            // 退出ToolStripMenuItem
+            // 
+            this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(206, 30);
+            this.退出ToolStripMenuItem.Text = "退出";
+            this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(426, 392);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 

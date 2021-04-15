@@ -67,17 +67,31 @@ namespace CapState
             }
         }
 
+        protected const string NOTIFYICONTEXT_UPPER = "大写锁定状态：大写";
+        protected const string NOTIFYICONTEXT_LOWER = "大写锁定状态：小写";
+        protected bool? IsUpperIcon = null;
+        private void UpdateState(bool isCapLocked)
+        {
+            if (IsUpperIcon.HasValue == false || isCapLocked != IsUpperIcon.Value)
+            {
+                IsUpperIcon = isCapLocked;
+                if (isCapLocked)
+                {
+                    this.notifyIcon1.Icon = upper;
+                    this.notifyIcon1.Text = NOTIFYICONTEXT_UPPER;
+                }
+                else
+                {
+                    this.notifyIcon1.Icon = lower;
+                    this.notifyIcon1.Text = NOTIFYICONTEXT_LOWER;
+                }
+            }
+        }
+
         private void UpdateState()
         {
-            if (Console.CapsLock)
-            {
-                this.notifyIcon1.Icon = upper;
-            }
-            else
-            {
-                this.notifyIcon1.Icon = lower;
-
-            }
+            UpdateState(Console.CapsLock);
+            return;
         }
 
         public static Stream GetResourceStream(string filename)
@@ -110,6 +124,11 @@ namespace CapState
                 rk2.Close();
                 rk.Close();
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
